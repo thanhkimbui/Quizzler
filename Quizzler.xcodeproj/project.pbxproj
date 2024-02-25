@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -103,7 +103,7 @@
 				};
 			};
 			buildConfigurationList = D00CB57B2B8AD7CD005BBC05 /* Build configuration list for PBXProject "Quizzler" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -295,6 +295,7 @@
 				DEVELOPMENT_TEAM = 377V6WHK4G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Quizzler/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Quizzler;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -323,6 +324,7 @@
 				DEVELOPMENT_TEAM = 377V6WHK4G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Quizzler/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Quizzler;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
