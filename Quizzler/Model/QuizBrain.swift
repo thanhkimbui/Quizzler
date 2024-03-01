@@ -1,19 +1,13 @@
 //
-//  ViewController.swift
+//  QuizBrain.swift
 //  Quizzler
 //
-//  Created by Kim Thanh Bui on 2/24/24.
+//  Created by Kim Thanh Bui on 2/29/24.
 //
 
-import UIKit
+import Foundation
 
-class ViewController: UIViewController {
-    
-    @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var progressBar: UIProgressView!
-    @IBOutlet weak var trueButton: UIButton!
-    @IBOutlet weak var falseButton: UIButton!
-    
+struct QuizBrain {
     let quiz = [
         Question(q: "A slug's blood is green.", a: "True"),
         Question(q: "Approximately one quarter of human bones are in the feet.", a: "True"),
@@ -30,39 +24,36 @@ class ViewController: UIViewController {
     ]
     
     var questionNumber = 0
+    var score = 0
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        updateUI()
-        progressBar.progress = 0.0
-    }
-    
-    
-    @IBAction func answerButtonPressed(_ sender: UIButton) {
-        let userAnswer = sender.currentTitle! // True, False
-        let actualAnswer = quiz[questionNumber].answer
-        
-        if userAnswer == actualAnswer {
-            sender.backgroundColor = UIColor.green
+    mutating func checkAnswer(_ userAnswer: String) -> Bool {
+        if userAnswer == quiz[questionNumber].answer {
+            score += 1
+            return true
         } else {
-            sender.backgroundColor = UIColor.red
+            return false
         }
         
-        questionNumber += 1
-        updateUI()
     }
     
-    func updateUI() {
-        if (questionNumber < quiz.count) {
-            questionLabel.text = quiz[questionNumber].text
-            trueButton.backgroundColor = UIColor.clear
-            falseButton.backgroundColor = UIColor.clear
+    func getQuestionText() -> String {
+        return quiz[questionNumber].text
+    }
+    
+    func getProgress() -> Float {
+        return Float(questionNumber) / Float(quiz.count)
+    }
+    
+    mutating func nextQuestion() {
+        if questionNumber + 1 < quiz.count {
+            questionNumber += 1
         } else {
-            //            questionLabel.text = "Congratulations! \n\nYou've Completed All Questions!"
-            questionNumber = 0
-            questionLabel.text = quiz[questionNumber].text
+            questionNumber  = 0
+            score = 0
         }
+    }
+    
+    func getScore() -> Int {
+        return score
     }
 }
-
